@@ -33,8 +33,6 @@ Your program should still work if the user inputs negative numbers and/or non-in
 
 ## Adventure Mode
 
-If the user enters something that is not a number (e.g. `Potato`), your program should state that this was a mistake and ask again.
-
 Extend your program to accept strings as well.  If the user starts off by entering a string (e.g. `correct`), then the program will accept strings for subsequent inputs.  Rather than showing statistics at the end, it will show the concatenated version of the inputs.  For example, if the inputs are the following:
 
 * `correct`
