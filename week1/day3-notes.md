@@ -1,0 +1,23 @@
+- https://www.destroyallsoftware.com/talks/wat
+ - https://twitter.com/garybernhardt
+- brew install git
+- Install ssh keys
+- Methods (functions)
+ - Return values
+  - explicit
+  - implicit
+  - guard clauses
+ - Parameters
+  - named
+  - default
+  - splat
+ - Calling other methods
+- Classes
+ - Data
+ - Behavior
+ - Instances of objects
+ - Encapsulation
+ - Instance variables
+# Resources
+- https://help.github.com/articles/generating-ssh-keys//
+- Asking questions: https://www.youtube.com/watch?v=hY14Er6JX2s
