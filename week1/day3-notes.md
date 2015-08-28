@@ -21,3 +21,4 @@
 # Resources
 - https://help.github.com/articles/generating-ssh-keys//
 - Asking questions: https://www.youtube.com/watch?v=hY14Er6JX2s
+- Recorded video: https://www.youtube.com/watch?v=t2jlAY9SWcg
