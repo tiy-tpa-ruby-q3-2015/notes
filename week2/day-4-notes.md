@@ -1,0 +1,3 @@
+- Bootstrap
+- Introduce the DOM
+- jQuery
