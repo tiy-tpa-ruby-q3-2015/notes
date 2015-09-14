@@ -4,6 +4,11 @@
   - https://github.com/alex/what-happens-when
 - Neat description of how DNS (turns google.com into 64.233.176.100 that the internet understands) from the domain and DNS provider: dnsimple.com
   - https://howdns.works/
+- HTTP Status codes
+  - http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+  - Funny:
+    - http://httpstatusdogs.com
+    - http://http.cat
 - telnet to server
   ```
   telnet gstark.com 80
