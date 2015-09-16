@@ -1,0 +1,35 @@
+- API
+  - Application Programming Interface
+- ERB
+  - Uses: templates for HTML, emails, data files
+  - Read from strings
+  - Read from files
+  - Provided by frameworks (Rails, etc.)
+- YAML
+  - Useful for configuration files (Rails database.yml)
+  - Useful for static data (e.g. my tic-tac-toe list of every possible game)
+  - Semi useful for updatable data
+- XML
+  - Old school
+  - Verbose, but powerful
+  - Supported by every language
+  - Nokogiri
+    - gem install nokogiri
+    - http://www.nokogiri.org/
+  - https://xkcd.com/927/
+  - http://quotes.stormconsultancy.co.uk/quotes/21
+- JSON
+  - http://www.developphp.com/video/JavaScript/JSON-Tutorial-for-Beginners-Learn-How-to-Program (Thanks Eddy!)
+  - Lingua franca of Javascript APIs (and others)
+  - *VERY* simple
+  - Arrays, hashes(objects), Strings, Numbers, Boolean, null
+  - THATS IT
+  - No comments!
+  - IMHO Not that great as a configuration file
+
+
+
+- Sinatra
+  - http://www.sinatrarb.com/intro.html
+- Enumerable
+  - https://github.com/tiy-tpa-rails-q2-2015/green_eggs_and_ham
