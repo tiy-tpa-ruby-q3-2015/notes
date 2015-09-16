@@ -1,0 +1,18 @@
+Hello <%= name %>,
+
+You have been selected for the upcoming cohort
+which begins on <%= @start_date %>, your tuition of
+<%= tuition %> is due on <%= tuition_due_date %>.
+
+Your fellow students are:
+
+<% # This is a loop, don't mess with it %>
+<% # This is for the developers %>
+<% other_students_names.each do |name| %>
+<% # It is ok to change this if you want %>
+Name: <%= name %>,
+<% end %>
+
+Sincerely,
+<%= campus_director_name %>
+Campus Director at The Iron Yard

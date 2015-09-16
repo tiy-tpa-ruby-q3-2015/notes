@@ -1,0 +1,15 @@
+---
+- 1
+- 42
+- 19
+- 25
+- 100
+- Gavin: Instructor
+  Car: Tesla
+  Job: The Iron Yard
+- String
+- Other String
+- !ruby/object:Employee
+  name: Toni
+  title: Campus Director
+  awesomeness_level: 9000

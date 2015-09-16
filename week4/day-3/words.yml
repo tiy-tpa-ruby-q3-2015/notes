@@ -1,0 +1,18 @@
+- word: ruby
+  definition: Awesome
+- word: Javascript
+  definition: Also Awesome
+- word: CSS
+  definition: MEH
+#
+# Doing it custom
+#
+# # Freeze dry
+# puts "#{word} = #{definition}"
+#
+# # Thaw out
+# line.split(" = ")
+#
+# ruby = Awesome
+# Javascript = Also Awesome
+# CSS = MEH
