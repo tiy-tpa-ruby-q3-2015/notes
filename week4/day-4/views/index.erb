@@ -1,0 +1,18 @@
+<html>
+<body>
+  <ol>
+    <% @people.each do |person| %>
+    <li>
+      <%= person %>
+    </li>
+    <% end %>
+  </ol>
+  <form method="POST" action="/save">
+    <ul>
+      <li><input name="age"/></li>
+      <li><input name="title"/></li>
+    </ul>
+    <button type="submit">Submit!</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %link{:rel => "stylesheet", :href => "css/style.css"}
+  %body
+    %ul
+      - @people.each do |person|
+        %li
+          = person
+
+    -# %div#navbar
+    -#   Nav bars rule!
+    -#
+    -# #navbar
+    -#   Nav bars rule!
+    -#
+    -# #navbar.footer.row.col-md-6.col-sm-4
+    -#   Footers also rule!
+
+    %form{:action => "/save", :method => "POST"}
+      %ul
+        %li
+          %input{:name => "age"}/
+        %li
+          %input{:name => "title"}/
+      %button{:type => "submit"} Submit!
