@@ -1,0 +1,7 @@
+- The tictactoe.rb is the code we finished in class as a group
+- Jason's FEE team is going to extend this as their needs adapt, I'll ask him to post updated code here along with their front end code.
+- tictactoe_01.rb is where we started today
+- each iteration adds more code to the file and there is a description at the top.
+- if you want to see the changes from one to the next you can use a command line:
+  - `diff tictactoe_01.rb tictactoe_02.rb`
+  - Change the 01 and 02, for example, to 03 and 04 to see the differences in moving from step 3 to step 4
