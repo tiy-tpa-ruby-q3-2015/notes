@@ -9,11 +9,21 @@ ActiveRecord::Base.establish_connection(
 )
 
 class User < ActiveRecord::Base
+  ZOMG_EMAIL_REGEXP = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   has_many :addresses
   has_many :orders
 
+  before_destroy :one_last_thing
+
+  validates :email, presence: true, format: ZOMG_EMAIL_REGEXP
+  validates :age,   presence: true
+
   def grand_total_order_amount
     orders.to_a.sum(&:total)
+  end
+
+  def one_last_thing
+    puts "I have one more thing to do before I am destroyed"
   end
 end
 
@@ -55,3 +65,43 @@ puts "-"*80
 Address.all.each do |address|
   puts "#{address.street} #{address.city} #{address.state} #{address.zip} -- #{address.user.first_name} #{address.user.last_name}"
 end
+
+# Long form
+user = User.new
+user.first_name = "Jason"
+user.last_name = "Perry"
+user.email = "jason-theironyard.com@"
+user.age = 21
+p user
+
+# Is valid?
+if user.valid?
+  puts "All is ok"
+else
+  puts "All is definitely NOT ok"
+  p user.errors
+end
+
+# Save to database
+user.save
+p user
+
+# Supply attributes at initialization
+user_with_attributes_at_initialization = User.new(first_name: "Jason", last_name: "Perry", email: "jason@theironyard.com", age: 21)
+# But is not yet in the db (see that id is 'nil')
+p user_with_attributes_at_initialization
+
+# Supply attributes at initialization
+user_with_create = User.create(first_name: "Jason", last_name: "Perry", email: "jason@theironyard.com", age: 21)
+# User is in the DB as long as it is valid
+p user_with_create
+
+# Get rid of Jason (I mean the record from the DB, not the human, he is pretty cool)
+puts "Getting rid of the user with id #{user_with_create.id} that is #{user_with_create.inspect}"
+user_with_create.destroy
+
+# Supply attributes at initialization
+invalid_user = User.create(first_name: "Jason", last_name: "Perry", age: 21)
+# User is in the DB as long as it is valid
+p invalid_user.valid?
+p invalid_user
