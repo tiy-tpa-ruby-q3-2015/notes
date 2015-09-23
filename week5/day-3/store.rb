@@ -1,116 +1,57 @@
 require "sqlite3"
+require 'active_record'
 
-DATABASE = SQLite3::Database.new(File.dirname(__FILE__) + "/store.sqlite3")
+ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-class User
-  attr_accessor :id, :first_name, :last_name, :email
+ActiveRecord::Base.establish_connection(
+  adapter: "sqlite3",
+  database: File.dirname(__FILE__) + "/store.sqlite3"
+)
 
-  def initialize(id, first_name, last_name, email)
-    self.id         = id
-    self.first_name = first_name
-    self.last_name  = last_name
-    self.email      = email
-  end
+class User < ActiveRecord::Base
+  has_many :addresses
+  has_many :orders
 
-  def self.sql(statement, *values)
-    DATABASE.execute(statement, values).
-             map { |row| User.new(row[0], row[1], row[2], row[3]) }.
-             first
-  end
-
-  def self.find(id)
-    sql("select * from users where users.id = ?", id)
-  end
-
-  def self.find_by_first_name_and_last_name(first_name, last_name)
-    sql("select * from users where users.first_name = ? AND users.last_name = ?", first_name, last_name)
-  end
-
-  def address
-    Address.find_by_user_id(id)
+  def grand_total_order_amount
+    orders.to_a.sum(&:total)
   end
 end
 
-class Address
-  attr_accessor :id, :user_id, :street, :city, :state, :zip
+class Address < ActiveRecord::Base
+  belongs_to :user
+end
 
-  def initialize(id, user_id, street, city, state, zip)
-    self.id = id
-    self.user_id = user_id
-    self.street = street
-    self.city = city
-    self.state = state
-    self.zip = zip
-  end
+class Item < ActiveRecord::Base
+  belongs_to :order
+end
 
-  def self.sql(statement, *values)
-    DATABASE.execute(statement, values).
-             map { |row| Address.new(row[0], row[1], row[2], row[3], row[4], row[5]) }.
-             first
-  end
+class Order < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :item
 
-  def self.find(address_id)
-    sql("select * from addresses where addresses.id = ?", address_id)
-  end
-
-  def self.find_by_user_id(user_id)
-    sql("select * from addresses where addresses.user_id = ?", user_id)
+  def total
+    quantity * item.price
   end
 end
 
-class Item
-  attr_accessor :id, :title, :category, :description, :price
+user = User.find_by_last_name("Little")
+addresses = user.addresses
+orders  = user.orders
+puts "#{user.first_name} #{user.last_name} and has ordered #{orders.size} things and has spent $#{user.grand_total_order_amount}"
+
+orders.each do |order|
+  item = order.item
+  puts "Order ##{order.id} #{item.title} for $#{item.price} x #{order.quantity} for a total of $#{order.total}"
 end
 
-class Order
-  attr_accessor :id, :user_id, :item_id, :quantity, :created_at
+User.all.each do |user|
+  user.addresses.each do |address|
+    puts "#{address.street} #{address.city} #{address.state} #{address.zip} -- #{user.first_name} #{user.last_name}"
+  end
 end
 
-user = User.find(37)
-address = user.address
-puts "#{user.first_name} #{user.last_name} lives in #{address.state}"
+puts "-"*80
 
-# other_user = User.find_by_first_name_and_last_name("Virginie", "Mitchell")
-# p other_user
-# p other_user.address
-
-# class Person
-#   DATABASE = SQLite3::Database.new(File.dirname(__FILE__) + "/people.db")
-#
-#   attr_accessor :name, :title
-#
-#   def initialize(name, title)
-#     self.name = name
-#     self.title = title
-#   end
-#
-#   def greeting
-#     "#{name} is a #{title}"
-#   end
-#
-#   def self.sql(statement, value)
-#     DATABASE.execute(statement, value).
-#              map { |row| Person.new(row[0], row[1]) }.
-#              first
-#   end
-#
-#   # This is a class method, we do not need an instance of the class (e.g. Person.new)
-#   # to call this method. We just call it as    Person.find(....)
-#   def self.find_by_partial_name(search_name)
-#     sql("select name, title from people where name like ? order by name", "%#{search_name}%")
-#   end
-#
-#   def self.find_by_exact_name(search_name)
-#     sql("select name, title from people where name = ? order by name", search_name)
-#   end
-# end
-#
-# print "What name are you searching for from the database? "
-# input_name = gets.chomp
-#
-# person = Person.find_by_exact_name(input_name)
-# if person
-#   puts "We found a person named #{person.name} and they are a #{person.title}"
-# else
-#   puts "Nope!"
-# end
+Address.all.each do |address|
+  puts "#{address.street} #{address.city} #{address.state} #{address.zip} -- #{address.user.first_name} #{address.user.last_name}"
+end
