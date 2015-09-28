@@ -1,0 +1,24 @@
+- Homework review
+- Where we have been
+  - Basic Ruby
+  - Structures (arrays, hashes)
+  - Classes
+  - Enumerable
+  - The Web
+  - HTTP (at least GET/POST)
+  - HTML + CSS
+  - ERB (and a little HAML)
+  - APIs
+  - SQL
+  - ActiveRecord
+  - Migrations
+- Where we are going
+  - Rails
+  - More javascript
+  - Authentication / Authorization
+  - Testing
+- M/V/C
+  - models / views / controllers
+- What is a "framework" ?
+- Why do we want/like frameworks?
+- What are the downsides of a framework?
