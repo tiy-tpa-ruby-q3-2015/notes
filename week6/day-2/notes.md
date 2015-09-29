@@ -1,0 +1,36 @@
+- Where does Rails come from?
+- What are some of Rails' core ideas?
+  - Opinionated Framework
+  - Convention over configuration
+  - Blank page syndrome
+  - Make the common path amazingly simple
+  - Secure by default (kinda)
+  - CRUD
+    - Create = PUT with a new URI / POST to a base URI returning a newly created URI
+    - Read   = GET
+    - Update = PUT with an existing URI
+    - Delete = DELETE  
+  - REST
+- What does "rails new" do for us    
+- Walk through a rails project structure
+  - Gemfile
+    - What are gems anyway?
+    - Why do we want a Gemfile and a Gemfile.lock
+  - Rakefile
+  - config.ru
+  - app
+  - bin
+  - config
+  - db
+  - lib
+  - public
+  - test
+  - vendor
+  - README.rdoc
+- rails generate scaffold
+- Middleware?
+
+- Homework
+  - Read the [getting started Rails guide]( http://guides.rubyonrails.org/getting_started.html)
+  - Interested in[ SCSS](http://sass-lang.com/guide)?
+  - Redo web dictionary as a Rails application
