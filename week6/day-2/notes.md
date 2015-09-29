@@ -30,7 +30,6 @@
 - rails generate scaffold
 - Middleware?
 
-- Homework
+- Resources
   - Read the [getting started Rails guide]( http://guides.rubyonrails.org/getting_started.html)
   - Interested in [SCSS](http://sass-lang.com/guide)?
-  - Redo web dictionary as a Rails application
