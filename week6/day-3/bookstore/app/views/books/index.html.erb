@@ -1,11 +1,15 @@
+<!-- Using content_for fills in the placeholder in the
+     layout wherever we see  yield :more_links -->
+<%= content_for :more_links do %>
+  <li><%= link_to "New Book", new_book_path %></li>
+<% end %>
+
 <% if @search %>
   <h1>You searched for <%= @search %></h1>
   <h2>Found <%= pluralize(@books.count, "book") %></h2>
-<% else %>
-  <h1>Listing Books</h1>
 <% end %>
 
-<table>
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
       <th>Title</th>
@@ -17,14 +21,22 @@
 
   <tbody>
     <% @books.each do |book| %>
-      <tr>
+      <% if book.long? %>
+        <tr class="success">
+      <% else %>
+        <% if book.missing_page_count? %>
+          <tr class="danger">
+        <% else %>
+          <tr>
+        <% end %>
+      <% end %>
         <td><%= book.title %></td>
         <td><%= book.date_published %></td>
         <td><%= book.page_count %></td>
 
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you really really really sure you dont like this book?' } %></td>
+        <td><%= link_to '', book, class: "glyphicon glyphicon-info-sign" %></td>
+        <td><%= link_to '', edit_book_path(book), class: "glyphicon glyphicon-pencil" %></td>
+        <td><%= link_to '', book, method: :delete, class: "glyphicon glyphicon-trash", data: { confirm: 'Are you really really really sure you dont like this book?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,7 +44,6 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
 
 <p id="notice"><%= notice %></p>
 
