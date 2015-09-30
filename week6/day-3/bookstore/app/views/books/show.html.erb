@@ -15,5 +15,10 @@
   <%= @book.date_published %>
 </p>
 
+<p>
+  <strong>Page count</strong>
+  <%= @book.page_count %>
+</p>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
