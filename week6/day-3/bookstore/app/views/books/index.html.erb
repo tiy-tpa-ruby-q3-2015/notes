@@ -36,7 +36,7 @@
 
         <td><%= link_to '', book, class: "glyphicon glyphicon-info-sign" %></td>
         <td><%= link_to '', edit_book_path(book), class: "glyphicon glyphicon-pencil" %></td>
-        <td><%= link_to '', book, method: :delete, class: "glyphicon glyphicon-trash", data: { confirm: 'Are you really really really sure you dont like this book?' } %></td>
+        <td><%= link_to('', book, method: :delete, class: "glyphicon glyphicon-trash", data: { confirm: 'Are you really really really sure you dont like this book?' }) %></td>
       </tr>
     <% end %>
   </tbody>
