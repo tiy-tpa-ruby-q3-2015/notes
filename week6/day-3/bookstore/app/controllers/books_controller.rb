@@ -7,6 +7,13 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def search
+    @search = params[:q]
+    @books  = Book.where("title like ?", "%#{@search}%")
+
+    render :index
+  end
+
   # GET /books/1
   # GET /books/1.json
   def show
