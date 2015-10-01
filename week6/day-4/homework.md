@@ -1,4 +1,3 @@
-
 We have been learning some basic Rails applications. But Rails is also good for APIs. This lab we are diving back into the land of games (as are the FEE students)
 
 I have created the skeleton of a Rails application that we will implement the API backend of a Minesweeper game.
@@ -8,7 +7,7 @@ The API document is located [here](https://minesweeper-api.herokuapp.com/)
 Lucky for you I have created a suite of tests that will tell you when the API has been completed.
 
 Getting Started
-- Fork this repository
+- Fork this [repository](https://github.com/tiy-tpa-ruby-q3-2015/minesweeper-api)
 - Clone this repository
 - bundle install
 - Change the Gemfile 'ruby' line to match your ruby version
@@ -19,11 +18,11 @@ Getting Started
 
 # Some extra information you will need
 
-We have seen that we can `render` a specific template by doing `render :index` etc. But `render` can also render `JSON` data by doing: `render json: SOMETHING_GOES_HERE` where `SOMETHING_GOES_HERE` can be an object, or a hash, or ...
+We will *NOT* be using views in this homework. Each controller action you write will end with a line that starts with `render json:    ` and something to complete the line.
 
-We can control the `JSON` that an object returns by defining a method `as_json` to return a hash of data that represents how that object is to be turned into JSON.
+We have seen that we can `render` a specific template by doing `render :index` etc. But `render` can also render `JSON` data by doing: `render json: SOMETHING_GOES_HERE` where `SOMETHING_GOES_HERE` can be an hash, or _maybe an instance of an object_ (hint, hint, hint, hint)
 
-Lucky for you I have implemented the object needed (and included the migration)
+We can control the `JSON` that an object returns by defining a method `as_json` to return a hash of data that represents how that object is to be turned into JSON. Lucky for you I have implemented the object needed (and included the migration)
 
 # Explorer Mode
 - [ ] Run the tests for the repository by running: `rake test`
