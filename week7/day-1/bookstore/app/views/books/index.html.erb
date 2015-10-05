@@ -22,17 +22,17 @@
   <tbody>
     <% @books.each do |book| %>
       <% if book.long? %>
-        <tr class="success">
+        <tr class="book success">
       <% else %>
         <% if book.missing_page_count? %>
-          <tr class="danger">
+          <tr class="book danger">
         <% else %>
-          <tr>
+          <tr class="book">
         <% end %>
       <% end %>
-        <td><%= book.title %></td>
-        <td><%= book.date_published %></td>
-        <td><%= book.page_count %></td>
+        <td class="title"><%= book.title %></td>
+        <td class="date-published"><%= book.date_published %></td>
+        <td class="page-count"><%= book.page_count %></td>
 
         <td><%= link_to '', book, class: "glyphicon glyphicon-info-sign" %></td>
         <td><%= link_to '', edit_book_path(book), class: "glyphicon glyphicon-pencil" %></td>
@@ -46,4 +46,3 @@
 
 
 <p id="notice"><%= notice %></p>
-

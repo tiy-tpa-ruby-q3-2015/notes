@@ -2,24 +2,30 @@ require 'test_helper'
 
 class BooksControllerTest < ActionController::TestCase
   setup do
-    @book = books(:one)
+    @book = Book.create(title: "gone with the wind", date_published: Date.today)
   end
 
   test "should get index" do
     get :index
+
     assert_response :success
+
+    # Make sure that the @books is not nil, that we assigned it something...
     assert_not_nil assigns(:books)
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_not_nil assigns(:book)
   end
 
   test "should create book" do
-    assert_difference('Book.count') do
-      post :create, book: { author_name: @book.author_name, date_published: @book.date_published, title: @book.title }
-    end
+    count_before = Book.count
+    post :create, book: { date_published: @book.date_published, title: @book.title }
+    count_after = Book.count
+
+    assert_equal count_before + 1, count_after
 
     assert_redirected_to book_path(assigns(:book))
   end
@@ -35,7 +41,7 @@ class BooksControllerTest < ActionController::TestCase
   end
 
   test "should update book" do
-    patch :update, id: @book, book: { author_name: @book.author_name, date_published: @book.date_published, title: @book.title }
+    patch :update, id: @book, book: { date_published: @book.date_published, title: @book.title }
     assert_redirected_to book_path(assigns(:book))
   end
 
