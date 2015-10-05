@@ -1,0 +1,21 @@
+
+- Know the different types of tests
+  - Unit
+    - Tests specific methods of specific objects
+    - Tests in _isolation_, sending specific inputs, expecting specific output
+    - Tends to have single assertion per test
+    - One class per test file (books_test.rb, etc)
+  - Controller
+    - Tests that the correct parameters are extracted
+    - Tests that the correct models are found/created/deleted
+    - Tests that the correct instance variables (via *assigns* is loaded)
+  - Integration
+    - Tests that everything works together
+    - Might test multiple requests in a single test
+    - Might test that the correct HTML/JSON is output
+    - Typically needs test fixtures/factories to be created
+
+- Gavin's testing [presentation](https://docs.google.com/presentation/d/1uu0f8CdRLEzt-PEr-E9ivBXG0XsaMUSUQS2UM4WsvY0/pub?start=false&loop=false&delayms=3000&slide=id.p)
+- Rails testing [guide](http://guides.rubyonrails.org/testing.html)
+- Rails [dom testing](http://www.rubydoc.info/github/rails/rails-dom-testing/Rails/Dom/Testing/Assertions/SelectorAssertions#assert_select-instance_method)
+- Instead of fixtures, prefer [factories]( https://github.com/thoughtbot/factory_girl)
