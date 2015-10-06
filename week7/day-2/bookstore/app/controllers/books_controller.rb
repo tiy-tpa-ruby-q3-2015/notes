@@ -4,6 +4,10 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
+    @last_time = session[:time]
+
+    session[:time] = Time.now.to_s
+
     @books = Book.all
   end
 
