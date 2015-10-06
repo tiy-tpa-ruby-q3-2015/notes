@@ -37,7 +37,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Login</a></li>
+            <li><%= link_to "Login",  new_session_path %></li>
+            <li><%= link_to "Logout", sessions_path, method: :delete, data: { confirm: 'Really logout?' } %></li>
             <%= yield :more_links %>
           </ul>
           <form class="navbar-form navbar-left" role="search" action="/books/search" method="get">
