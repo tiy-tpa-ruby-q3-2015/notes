@@ -9,9 +9,7 @@
   <h2>Found <%= pluralize(@books.count, "book") %></h2>
 <% end %>
 
-<% if @last_time %>
-  <h1>The last time you were here was <%= @last_time %></h1>
-<% end %>
+<h1>Welcome back <%= current_user.email %></h1>
 
 <table class="table table-bordered table-condensed table-hover">
   <thead>
