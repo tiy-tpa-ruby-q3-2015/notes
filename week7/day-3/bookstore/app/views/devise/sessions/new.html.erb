@@ -1,7 +1,7 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<div class="col-xs-4 col-centered">
+<div class="col-xs-6 col-centered">
 <div class="panel panel-default">
   <div class="panel-heading">
     <h4><%= t('.sign_in', :default => "Sign in") %></h4>
@@ -23,6 +23,12 @@
         </div>
         <% end %>
       <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary" %>
+
+      <%= link_to omniauth_authorize_path(resource_name, :github), class: "btn btn-primary" do %>
+        <i class="fa fa-lg fa-github"></i>
+        <%= t('.sign_in_with_provider', provider: "github".titleize, :default => "Sign in with Github") %>
+      <% end %>
+
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
       <%= link_to t(".forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name) %>
       <% end -%>
