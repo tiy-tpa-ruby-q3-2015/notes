@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :ensure_logged_in
+  before_action :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
@@ -88,12 +88,5 @@ class BooksController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def book_params
     params.require(:book).permit(:title, :date_published, :author_id, :page_count)
-  end
-
-  def ensure_logged_in
-    if current_user.nil?
-      redirect_to new_session_path
-      return false
-    end
   end
 end
