@@ -20,7 +20,8 @@
 
 # Omniauth (OAuth)
 - Add `omniauth` and `omniauth-github`
-- What creates the omniauth migration?
+- Add migration for omniauth:
+  - `rails g migration AddOmniauthToUsers name provider:index uid:index nickname access_token`
 - user update
   - `:omniauthable, :omniauth_providers: [:github]`
 - Gemfile: `dotenv-rails`
@@ -64,3 +65,7 @@
     end
   ```
 - Add font awesome if you want hip social media icons.
+
+# Resources
+- [Devise](https://github.com/plataformatec/devise#getting-started)
+- [Omniauth with Devise](https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview)
