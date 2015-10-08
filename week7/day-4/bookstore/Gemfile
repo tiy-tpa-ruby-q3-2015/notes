@@ -11,6 +11,9 @@ gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'font-awesome-sass'
 
+# Authorization
+gem "pundit"
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

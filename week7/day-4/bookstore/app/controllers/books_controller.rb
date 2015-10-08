@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :back_to_the_books
+  rescue_from Pundit::NotAuthorizedError, with: :leet_haxor
 
   # GET /books
   # GET /books.json
@@ -34,11 +35,9 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    unless current_user.admin? || current_user.cashier? || current_user.supervisor?
-      redirect_to books_path
-    end
-
     @book = Book.new
+
+    authorize(@book)
   end
 
   # GET /books/1/edit
@@ -49,12 +48,10 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    unless current_user.admin?
-      redirect_to books_path
-    end
-
     @book = Book.new(book_params)
     @book.created_by = current_user.id
+
+    authorize(@book)
 
     respond_to do |format|
       if @book.save
@@ -88,6 +85,8 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.visible_by(current_user).find(params[:id])
 
+    authorize(@book)
+
     @book.destroy
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
@@ -109,5 +108,9 @@ class BooksController < ApplicationController
 
   def back_to_the_books
     redirect_to books_path
+  end
+
+  def leet_haxor
+    render text: "Go away you hacker!"
   end
 end
