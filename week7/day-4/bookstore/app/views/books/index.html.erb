@@ -17,6 +17,7 @@
       <th>Title</th>
       <th>Date published</th>
       <th>Page Count</th>
+      <th>Private</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -35,6 +36,7 @@
         <td class="title"><%= book.title %></td>
         <td class="date-published"><%= book.date_published %></td>
         <td class="page-count"><%= book.page_count %></td>
+        <td><%= book.private? %></td>
 
         <td><%= link_to '', book, class: "glyphicon glyphicon-info-sign" %></td>
         <td><%= link_to '', edit_book_path(book), class: "glyphicon glyphicon-pencil" %></td>
