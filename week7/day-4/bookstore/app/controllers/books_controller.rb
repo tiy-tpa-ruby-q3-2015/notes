@@ -34,6 +34,10 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
+    unless current_user.admin? || current_user.cashier? || current_user.supervisor?
+      redirect_to books_path
+    end
+
     @book = Book.new
   end
 
@@ -45,6 +49,10 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+    unless current_user.admin?
+      redirect_to books_path
+    end
+
     @book = Book.new(book_params)
     @book.created_by = current_user.id
 
