@@ -10,6 +10,7 @@
     </div>
   <% end %>
 
+
   <div class="input-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, class: "form_control" %>
@@ -26,6 +27,12 @@
     <%= f.label :author %><br>
     <%= f.collection_select(:author_id, Author.all, :id, :name) %>
   </div>
+
+  <div class="input-group">
+    <%= f.label :title %><br>
+    <%= f.hidden_field :rating, class: "rating form_control" %>
+  </div>
+
   <div class="field">
     <%= f.label :private %><br>
     <%= f.check_box :private %>

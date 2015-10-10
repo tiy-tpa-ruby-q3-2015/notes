@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20151010203412) do
     t.integer  "author_id"
     t.integer  "created_by"
     t.boolean  "private"
+    t.integer  "rating"
   end
 
   create_table "users", force: :cascade do |t|
