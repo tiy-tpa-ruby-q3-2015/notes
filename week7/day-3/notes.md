@@ -67,5 +67,6 @@
 - Add font awesome if you want hip social media icons.
 
 # Resources
+- Blog post about [OAuth in Plain English](http://blog.varonis.com/introduction-to-oauth/)
 - [Devise](https://github.com/plataformatec/devise#getting-started)
 - [Omniauth with Devise](https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview)
