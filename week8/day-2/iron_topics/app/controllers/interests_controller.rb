@@ -7,10 +7,11 @@ class InterestsController < ApplicationController
     if @interest.valid?
       @interest.save
 
+      @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, filter_html: true, no_links: true)
+
       # Send an (something?) to the user that created the topic
       # @interest.topic.user  is the user that created the associated topic
-
-      redirect_to root_path
+      render :create
     else
       redirect_to root_path, alert: "Ooops"
     end
