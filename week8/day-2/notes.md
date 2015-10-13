@@ -12,4 +12,5 @@
   - http://api.jquery.com
 - jQuery AJAX
   - http://api.jquery.com/jQuery.ajax/
-
+- Doing fancy javascript without jQuery
+  - http://youmightnotneedjquery.com/
