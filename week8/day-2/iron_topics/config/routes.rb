@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root "topics#index"
 
   resources :topics, except: [:destroy]
-  resources :interests, only: [:create]
+  resources :interests, only: [:create] do
+    collection do
+      post :filter
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
