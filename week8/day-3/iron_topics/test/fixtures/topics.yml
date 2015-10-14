@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  long_description: MyText
+  focus_area: MyString
+
+two:
+  title: MyString
+  long_description: MyText
+  focus_area: MyString
