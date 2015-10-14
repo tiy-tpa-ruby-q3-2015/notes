@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   root "topics#index"
 
-  resources :topics, except: [:destroy]
-  resources :interests, only: [:create] do
+  resources :topics, except: [:destroy] do
     collection do
-      post :filter
+      get :search
+    end
+
+    resources :interests, only: [:index, :show, :create] do
+      collection do
+        post :filter
+      end
     end
   end
 

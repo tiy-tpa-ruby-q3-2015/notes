@@ -7,6 +7,19 @@ class InterestsController < ApplicationController
     @interests = topic.interests.where(level: params[:level])
   end
 
+  def index
+    @topic = Topic.find(params[:topic_id])
+
+    @interests = @topic.interests
+  end
+
+  # /topics/:topic_id/interests/:id
+  def show
+    @topic = Topic.find(params[:topic_id])
+
+    @interest = @topic.interests.find(params[:id])
+  end
+
   def create
     @interest = Interest.new(interest_params)
     @interest.user_id = current_user.id
