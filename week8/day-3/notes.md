@@ -1,0 +1,7 @@
+- Nested attributes / forms
+- Nested resources
+- I18n translations
+  - Used for allowing non-developers to edit text in the app
+  - Translations to foreign languages
+- hub create (creating github repos)
+- Omniauth [without devise](https://github.com/tiy-tpa-ruby-q3-2015/omniauth-github-example/commits/master)
