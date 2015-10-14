@@ -23,6 +23,18 @@
     <%= f.label :focus_area %><br>
     <%= f.text_field :focus_area %>
   </div>
+
+  <%= f.fields_for :interests do |interest_fields| %>
+    <div class="field">
+    <%= interest_fields.label :level %>
+    <%= interest_fields.text_field :level %>
+    </div>
+    <div class="field">
+    <%= interest_fields.label :comment %>
+    <%= interest_fields.text_area :comment %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
