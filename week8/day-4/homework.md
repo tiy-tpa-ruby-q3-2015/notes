@@ -16,6 +16,7 @@ End and UI/UX members of our teams.
 
 # Explorer Mode
 
+- [ ] Pefect the design of your IronTopics app
 - [ ] Utilize Bootstrap to it's fullest
   - [ ] Choose a great looking font
   - [ ] Make your forms well positioned, sized, and structured.
