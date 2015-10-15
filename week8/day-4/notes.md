@@ -1,0 +1,15 @@
+- blocks in ruby vs functions in javascript
+  - passing lambda's like we do functions in javascript
+- Computational Complexity
+  - O(1)
+  - O(n)
+  - O(n^2)
+  - O(n logn)
+  - https://www.youtube.com/watch?v=YX40hbAHx3s
+- all the modes of `render`
+- Interview coding challenges
+  - FizzBuzz
+  - reverse an array
+  - Find palindrome in a text file
+  - Sum all the digits of a number
+  - Find all the numbers between 2 and 1000 that are squares (e.g. 4, 16, 25, ...)
