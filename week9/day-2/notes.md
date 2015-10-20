@@ -1,0 +1,19 @@
+- [Ruby Survey](http://www.askr.me/ruby)
+- New Relic
+- [Minimal Viable Product](https://s-media-cache-ak0.pinimg.com/736x/4b/64/ae/4b64ae71d85e8fd8068694e399153b3a.jpg)
+- Breaking a project down into pieces
+  - User stories
+  - Wireframes
+  - Application flow
+  - Data modeling
+  - Design
+  - Enhancements
+  - Iteration
+- Trello for organizing a project
+- Rails file upload with [refile](https://github.com/refile/refile)
+  - Followed along the `README` documentation from the refile home page
+  - used `cover_page` instead of `profile_image` on the `Book` class instead of `User`
+  - Created Amazon S3 account and got my API key and SECRET
+  - Added a `config/initializer/refile.rb` and put in the example `S3` configuration *BUT* used `ENV` to store the secrets
+    - NOTE: Do not put your AWS (or other) credentials in a file that goes into git/github
+
