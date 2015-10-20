@@ -1,0 +1,43 @@
+<%= form_for(@book, class: "form-horizontal") do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="input-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form_control" %>
+  </div>
+  <div class="field">
+    <%= f.label :date_published %><br>
+    <%= f.text_field :date_published %>
+  </div>
+  <div class="field">
+    <%= f.label :page_count %><br>
+    <%= f.text_field :page_count %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.collection_select(:author_id, Author.all, :id, :name) %>
+  </div>
+
+  <div class="input-group">
+    <%= f.label :title %><br>
+    <%= f.hidden_field :rating, class: "rating form_control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :private %><br>
+    <%= f.check_box :private %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
