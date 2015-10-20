@@ -4,6 +4,8 @@ class Book < ActiveRecord::Base
   scope :private_books, lambda { where(private: true) }
   scope :in_order,      lambda { order("title") }
 
+  attachment :cover_page
+
   def long?
     self.page_count.to_i >= 100
   end
