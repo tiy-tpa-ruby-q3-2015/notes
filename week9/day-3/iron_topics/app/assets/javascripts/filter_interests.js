@@ -1,4 +1,4 @@
-$(document).ready(function()
+$(document).on("page:change", function()
 {
   $("#interest_level").change(function()
   {
