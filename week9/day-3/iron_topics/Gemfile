@@ -22,6 +22,10 @@ gem 'omniauth-twitter'
 # Formatting
 gem 'redcarpet'
 
+# Background jobs
+gem 'sidekiq'
+gem 'sinatra', :require => nil
+
 # Environment/secrets
 gem 'dotenv-rails'
 

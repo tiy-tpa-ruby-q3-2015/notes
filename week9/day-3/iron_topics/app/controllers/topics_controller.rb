@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :disallow_editing_for_topics_with_interests, only: [:edit, :update]
@@ -35,6 +37,8 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.save
+        GoogleSearchTopic.perform_async(@topic.id)
+
         # Have to put the user_id in the comment ....
         interest = @topic.interests.first
         interest.user_id = current_user.id
@@ -47,6 +51,14 @@ class TopicsController < ApplicationController
         format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def delete
+    @topic = Topic.find(params[:id])
+
+    InterestEmailSender.new(@topic).send_email
+
+    @topic.destroy
   end
 
   # PATCH/PUT /topics/1

@@ -1,6 +1,10 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   root "topics#index"
+
+  mount Sidekiq::Web => '/secret_sidekiq'
 
   resources :topics, except: [:destroy] do
     collection do
